@@ -19,3 +19,82 @@ Este tutorial guia você através do processo de conversão de dados OpenStreetM
 ### Verificação do Java
 ```cmd
 java -version
+Caso não tenha Java instalado:
+
+Baixe o JDK mais recente Oracle JDK ou OpenJDK
+
+Adicione ao PATH:
+C:\Program Files\Java\jdk-[version]\bin
+Instalação do Osm2World
+Baixe a versão mais recente em osm2world.org
+
+Extraia o arquivo ZIP (ex.: C:\OSM2World-0.4.0-bin)
+
+🛠️ Passo 3: Pré-processamento dos Dados
+Crie uma pasta de projeto:
+mkdir C:\OSM_Project
+cd C:\OSM_Project
+mkdir C:\OSM_Project
+cd C:\OSM_Project
+Copie para esta pasta:
+
+Arquivo OSM (ex.: ufsm.osm)
+
+Pasta do Osm2World
+
+⚙️ Configuração do Osm2World
+Edite o arquivo:
+OSM2World-0.4.0-bin\config\standard.properties
+
+Adicione/altere:
+ignoreInvalidGeometry=true
+generateSports=false
+generateTrees=false
+generatePowerLines=false
+minBuildingHeight=3.0
+buildingHeight=10.0
+🖥️ Passo 4: Conversão para 3D
+Execute no diretório do projeto:
+
+cmd
+java -Xmx8G -cp "OSM2World-0.4.0-bin\Osm2World.jar;OSM2World-0.4.0-bin\lib\*" org.osm2world.console.OSM2World --input ufsm.osm --output ufsm.obj --config OSM2World-0.4.0-bin\config\standard.properties
+Possíveis Erros (podem ser ignorados):
+"Degenerate triangle"
+"Index: -1"
+"Wall boundaries"
+✅ Verificação
+cmd
+dir ufsm.obj
+Arquivo deve existir e ter >1MB
+
+🎨 Passo 5: Visualização no Blender
+Abra o Blender
+
+File → Import → Wavefront (.obj)
+
+Selecione ufsm.obj
+
+Otimizações (opcional):
+Aplicar modificador "Decimate"
+
+Remover objetos problemáticos
+
+Exportar para .glTF ou .fbx
+
+📂 Estrutura do Projeto
+/projeto
+├── /OSM2World-0.4.0-bin    # Ferramenta de conversão
+├── /config                 # Configurações personalizadas
+├── input.osm               # Dados OSM originais
+└── output.obj              # Modelo 3D gerado
+⚠️ Troubleshooting
+Problemas com Java: Verifique java -version e PATH
+
+Arquivo .obj vazio: Verifique logs de erro e tamanho do arquivo OSM
+
+Texturas ausentes: Osm2World gera apenas geometria básica
+
+📚 Recursos Adicionais
+Documentação Osm2World
+
+Sionna RT Documentation
