@@ -18,8 +18,9 @@ Este tutorial guia você através do processo de conversão de dados OpenStreetM
 ## ⚙️ Passo 2: Configuração do Ambiente
 ### Verificação do Java
 cmd
+```
 java -version
-
+```
 
 ## Caso não tenha Java instalado:
 
@@ -34,10 +35,12 @@ Extraia o arquivo ZIP (ex.: C:\OSM2World-0.4.0-bin)
 
 🛠️ Passo 3: Pré-processamento dos Dados
  Crie uma pasta de projeto:
+```
 mkdir C:\OSM_Project
 cd C:\OSM_Project
 mkdir C:\OSM_Project
 cd C:\OSM_Project
+```
 Copie para esta pasta:
 
 Arquivo OSM (ex.: ufsm.osm)
@@ -55,20 +58,23 @@ generateTrees=false
 generatePowerLines=false
 minBuildingHeight=3.0
 buildingHeight=10.0
+
 🖥️ Passo 4: Conversão para 3D
 Execute no diretório do projeto:
-
+```
 cmd
 java -Xmx8G -cp "OSM2World-0.4.0-bin\Osm2World.jar;OSM2World-0.4.0-bin\lib\*" org.osm2world.console.OSM2World --input ufsm.osm --output ufsm.obj --config OSM2World-0.4.0-bin\config\standard.properties
 Possíveis Erros (podem ser ignorados):
 "Degenerate triangle"
 "Index: -1"
 "Wall boundaries"
+```
 ✅ Verificação
+```
 cmd
 dir ufsm.obj
 Arquivo deve existir e ter >1MB
-
+```
 🎨 Passo 5: Visualização no Blender
 Abra o Blender
 
