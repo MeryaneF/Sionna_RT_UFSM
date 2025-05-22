@@ -6,7 +6,7 @@ Este tutorial guia você através do processo de conversão de dados OpenStreetM
 - Java JDK 8+ instalado
 - Osm2World (versão 0.4.0 ou superior)
 - Blender (para visualização/edição opcional)
-- ~8GB de RAM disponível
+-  **Atenção:** Todos os comandos devem ser executados no PowerShell ou CMD como Administrador
 
 ## 🌐 Passo 1: Obtenção dos Dados OSM
 1. Acesse [BBBike Extract](https://extract.bbbike.org/)
