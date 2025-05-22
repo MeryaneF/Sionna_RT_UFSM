@@ -17,9 +17,11 @@ Este tutorial guia você através do processo de conversão de dados OpenStreetM
 
 ## ⚙️ Passo 2: Configuração do Ambiente
 ### Verificação do Java
-```cmd
+cmd
 java -version
-Caso não tenha Java instalado:
+
+
+## Caso não tenha Java instalado:
 
 Baixe o JDK mais recente Oracle JDK ou OpenJDK
 
@@ -31,7 +33,7 @@ Baixe a versão mais recente em osm2world.org
 Extraia o arquivo ZIP (ex.: C:\OSM2World-0.4.0-bin)
 
 🛠️ Passo 3: Pré-processamento dos Dados
-Crie uma pasta de projeto:
+ Crie uma pasta de projeto:
 mkdir C:\OSM_Project
 cd C:\OSM_Project
 mkdir C:\OSM_Project
