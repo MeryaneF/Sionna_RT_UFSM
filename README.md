@@ -17,7 +17,7 @@ Este tutorial guia você através do processo de conversão de dados OpenStreetM
 
 ## ⚙️ Passo 2: Configuração do Ambiente
 ### Verificação do Java
-cmd
+
 ```
 java -version
 ```
@@ -52,17 +52,17 @@ Edite o arquivo:
 OSM2World-0.4.0-bin\config\standard.properties
 
 Adicione/altere:
+```
 ignoreInvalidGeometry=true
 generateSports=false
 generateTrees=false
 generatePowerLines=false
 minBuildingHeight=3.0
 buildingHeight=10.0
-
+```
 🖥️ Passo 4: Conversão para 3D
 Execute no diretório do projeto:
 ```
-cmd
 java -Xmx8G -cp "OSM2World-0.4.0-bin\Osm2World.jar;OSM2World-0.4.0-bin\lib\*" org.osm2world.console.OSM2World --input ufsm.osm --output ufsm.obj --config OSM2World-0.4.0-bin\config\standard.properties
 Possíveis Erros (podem ser ignorados):
 "Degenerate triangle"
@@ -71,7 +71,6 @@ Possíveis Erros (podem ser ignorados):
 ```
 ✅ Verificação
 ```
-cmd
 dir ufsm.obj
 Arquivo deve existir e ter >1MB
 ```
