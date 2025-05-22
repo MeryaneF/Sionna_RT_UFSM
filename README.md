@@ -89,11 +89,13 @@ Remover objetos problemáticos
 Exportar para .glTF ou .fbx
 
 📂 Estrutura do Projeto
+```
 /projeto
 ├── /OSM2World-0.4.0-bin    # Ferramenta de conversão
 ├── /config                 # Configurações personalizadas
 ├── input.osm               # Dados OSM originais
 └── output.obj              # Modelo 3D gerado
+```
 ⚠️ Troubleshooting
 Problemas com Java: Verifique java -version e PATH
 
