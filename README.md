@@ -30,7 +30,6 @@ Adicione ao PATH:
 C:\Program Files\Java\jdk-[version]\bin
 Instalação do Osm2World
 Baixe a versão mais recente em osm2world.org
-
 Extraia o arquivo ZIP (ex.: C:\OSM2World-0.4.0-bin)
 
 🛠️ Passo 3: Pré-processamento dos Dados
@@ -41,10 +40,8 @@ cd C:\OSM_Project
 mkdir C:\OSM_Project
 cd C:\OSM_Project
 ```
-Copie para esta pasta:
-
+📂Copie para esta pasta:
 Arquivo OSM (ex.: ufsm.osm)
-
 Pasta do Osm2World
 
 ⚙️ Configuração do Osm2World
@@ -76,16 +73,11 @@ Arquivo deve existir e ter >1MB
 ```
 🎨 Passo 5: Visualização no Blender
 Abra o Blender
-
 File → Import → Wavefront (.obj)
-
 Selecione ufsm.obj
-
 Otimizações (opcional):
 Aplicar modificador "Decimate"
-
 Remover objetos problemáticos
-
 Exportar para .glTF ou .fbx
 
 📂 Estrutura do Projeto
@@ -97,13 +89,11 @@ Exportar para .glTF ou .fbx
 └── output.obj              # Modelo 3D gerado
 ```
 ⚠️ Troubleshooting
-Problemas com Java: Verifique java -version e PATH
-
+Problemas com Java: 
+Verifique java -version e PATH
 Arquivo .obj vazio: Verifique logs de erro e tamanho do arquivo OSM
-
 Texturas ausentes: Osm2World gera apenas geometria básica
 
 📚 Recursos Adicionais
-Documentação Osm2World
-
-Sionna RT Documentation
+Documentação Osm2World - https://osm2world.org/docs/
+Sionna RT Documentation - https://nvlabs.github.io/sionna/rt/index.html
