@@ -37,8 +37,7 @@ Extraia o arquivo ZIP (ex.: C:\OSM2World-0.4.0-bin)
 ```
 mkdir C:\OSM_Project
 cd C:\OSM_Project
-mkdir C:\OSM_Project
-cd C:\OSM_Project
+
 ```
 📂Copie para esta pasta:
 Arquivo OSM (ex.: ufsm.osm)
