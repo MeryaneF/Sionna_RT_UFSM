@@ -1,98 +1,27 @@
-# Tutorial: Conversão de Dados OSM para Sionna RT (Cena 3D)
+# UFSM Sionna RT
 
-Este tutorial guia você através do processo de conversão de dados OpenStreetMap (OSM) para um modelo 3D compatível com o Sionna RT.
+Simulação do ambiente da UFSM utilizando o [Sionna RT](https://nvlabs.github.io/sionna/) em conjunto com ferramentas de modelagem e renderização 3D.
 
-## 📋 Pré-requisitos
-- Java JDK 8+ instalado
-- Osm2World (versão 0.4.0 ou superior)
-- Blender (para visualização/edição opcional)
--  **Atenção:** Todos os comandos devem ser executados no PowerShell ou CMD como Administrador
+##  Objetivo: 
 
-## 🌐 Passo 1: Obtenção dos Dados OSM
-1. Acesse [BBBike Extract](https://extract.bbbike.org/)
-2. Selecione a área desejada:
-   - Defina o polígono de extração
-   - Escolha formato `.osm`
-3. Faça o download e aguarde o e-mail com os dados
+Este projeto tem como objetivo principal reproduzir virtualmente o ambiente da UFSM, utilizando o Sionna RT como motor de simulação.
 
-## ⚙️ Passo 2: Configuração do Ambiente
-### Verificação do Java
+## Tecnologias e Ferramentas
 
-```
-java -version
-```
+- [Blender 3.3](https://www.blender.org/download/releases/3-3/) – ferramenta principal de modelagem 3D
+- [Blosm](https://github.com/eliemichel/MapsModelsImporter) – add-on para importação de mapas
+- [Mitsuba](https://www.mitsuba-renderer.org/) – renderer usado para integração com o Sionna RT
+- `.bat` customizado – utilizado para iniciar o Blender com suporte adequado ao Mitsuba (corrigindo incompatibilidades)
 
-## Caso não tenha Java instalado:
+##  Como executar
 
-Baixe o JDK mais recente Oracle JDK ou OpenJDK
-
-Adicione ao PATH:
-C:\Program Files\Java\jdk-[version]\bin
-Instalação do Osm2World
-Baixe a versão mais recente em osm2world.org
-Extraia o arquivo ZIP (ex.: C:\OSM2World-0.4.0-bin)
-
-🛠️ Passo 3: Pré-processamento dos Dados
- Crie uma pasta de projeto:
-```
-mkdir C:\OSM_Project
-cd C:\OSM_Project
-
-```
-📂Copie para esta pasta:
-Arquivo OSM (ex.: ufsm.osm)
-Pasta do Osm2World
-
-⚙️ Configuração do Osm2World
-Edite o arquivo:
-OSM2World-0.4.0-bin\config\standard.properties
-
-Adicione/altere:
-```
-ignoreInvalidGeometry=true
-generateSports=false
-generateTrees=false
-generatePowerLines=false
-minBuildingHeight=3.0
-buildingHeight=10.0
-```
-🖥️ Passo 4: Conversão para 3D
-Execute no diretório do projeto:
-```
-java -Xmx8G -cp "OSM2World-0.4.0-bin\Osm2World.jar;OSM2World-0.4.0-bin\lib\*" org.osm2world.console.OSM2World --input ufsm.osm --output ufsm.obj --config OSM2World-0.4.0-bin\config\standard.properties
-Possíveis Erros (podem ser ignorados):
-"Degenerate triangle"
-"Index: -1"
-"Wall boundaries"
-```
-✅ Verificação
-```
-dir ufsm.obj
-Arquivo deve existir e ter >1MB
-```
-🎨 Passo 5: Visualização no Blender
-Abra o Blender
-File → Import → Wavefront (.obj)
-Selecione ufsm.obj
-Otimizações (opcional):
-Aplicar modificador "Decimate"
-Remover objetos problemáticos
-Exportar para .glTF ou .fbx
-
-📂 Estrutura do Projeto
-```
-/projeto
-├── /OSM2World-0.4.0-bin    # Ferramenta de conversão
-├── /config                 # Configurações personalizadas
-├── input.osm               # Dados OSM originais
-└── output.obj              # Modelo 3D gerado
-```
-⚠️ Troubleshooting
-Problemas com Java: 
-Verifique java -version e PATH
-Arquivo .obj vazio: Verifique logs de erro e tamanho do arquivo OSM
-Texturas ausentes: Osm2World gera apenas geometria básica
-
-📚 Recursos Adicionais
-Documentação Osm2World - https://osm2world.org/docs/
-Sionna RT Documentation - https://nvlabs.github.io/sionna/rt/index.html
+1. Instale o [Blender 3.3](https://www.blender.org/download/releases/3-3/).
+2. Adicione o Blosm e o Mitsuba como extensões.
+3. Execute o script `.bat` incluído neste repositório para abrir o Blender com o ambiente configurado.
+4. Importe os modelos da UFSM e inicie a simulação no Sionna RT.
+4. Importe os modelos da UFSM no Blender:
+   - Utilize o add-on Blosm para importar a estrutura da UFSM diretamente no Blender.
+   - Durante a importação, ative a opção para importar somente os elementos “Building”, evitando objetos desnecessários.
+   - Evite importar como um único bloco os modelos devem vir separados para facilitar o mapeamento dos materiais e ajustes individuais.
+   - Após a importação, renomeie os materiais dos objetos para que correspondam exatamente aos nomes dos materiais de rádio definidos no Sionna RT. Isso garante que o simulador                interprete corretamente as propriedades eletromagnéticas de cada superfície.
+   - Acesse as configurações de World no Blender e altere os parâmetros conforme os requisitos do Sionna RT (como tipo de iluminação, ambiente HDRI, visibilidade do fundo etc.).
