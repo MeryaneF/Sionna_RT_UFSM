@@ -25,3 +25,6 @@ Este projeto tem como objetivo principal reproduzir virtualmente o ambiente da U
    - Evite importar como um único bloco os modelos devem vir separados para facilitar o mapeamento dos materiais e ajustes individuais.
    - Após a importação, renomeie os materiais dos objetos para que correspondam exatamente aos nomes dos materiais de rádio definidos no Sionna RT. Isso garante que o simulador                interprete corretamente as propriedades eletromagnéticas de cada superfície.
    - Acesse as configurações de World no Blender e altere os parâmetros conforme os requisitos do Sionna RT (como tipo de iluminação, ambiente HDRI, visibilidade do fundo etc.).
+## Sites Úteis
+1. Sionna Tutorial: https://nvlabs.github.io/sionna/rt/index.html
+2. Tutorial Blender: https://youtu.be/7xHLDxUaQ7c?si=Ogl_WLvEYFHjhle1
